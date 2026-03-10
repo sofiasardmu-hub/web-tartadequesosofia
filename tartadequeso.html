@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FAVICON (Icono de la pestaña) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍰</text></svg>">
+
+    <!-- SEO BÁSICO -->
+    <title>La Mejor Tarta de Queso: Receta La Viña, Historia y Ciencia Gastronómica</title>
+    <meta name="description" content="Descubre la guía definitiva sobre la tarta de queso: desde la receta maestra estilo La Viña hasta su historia, física del horneado y las mejores pastelerías de España.">
+    <meta name="keywords" content="tarta de queso, receta tarta de queso, cheesecake la viña, historia tarta de queso, mejores tartas de queso españa, ciencia de la repostería">
+    <meta name="author" content="Sofía Sardiñas Muñoz">
+    <meta name="robots" content="index, follow">
+
+    <!-- DATOS ESTRUCTURADOS JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "La Mejor Tarta de Queso: Receta La Viña, Historia y Ciencia Gastronómica",
+      "description": "Una guía exhaustiva sobre la tarta de queso que cubre desde sus orígenes en la antigua Grecia hasta la receta moderna de La Viña.",
+      "author": {
+        "@type": "Person",
+        "name": "Sofía Sardiñas Muñoz"
+      },
+      "inLanguage": "es",
+      "about": {
+        "@type": "Thing",
+        "name": "Cheesecake",
+        "sameAs": "https://es.wikipedia.org/wiki/Tarta_de_queso"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Gastronomía Sofía"
+      }
+    }
+    </script>
+
+    <!-- OPEN GRAPH (Para redes sociales) -->
+    <meta property="og:title" content="La Tarta de Queso | Enciclopedia y Arte Gastronómico">
+    <meta property="og:description" content="Explora el origen, la ciencia y la receta perfecta de la tarta de queso. Un viaje sensorial por la joya láctea universal.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://TU-URL-PUBLICADA.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=1200">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #b08d57; 
+            --bg: #fffbf5;    
+            --text: #2d2a26;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* MENÚ LATERAL FUNCIONAL */
+        #side-menu {
+            transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+            transform: translateX(100%);
+            background: white;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 100%;
+            z-index: 200;
+        }
+        @media (min-width: 768px) {
+            #side-menu { width: 450px; }
+        }
+        #side-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Hero */
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(255, 251, 245, 0.1), rgba(255, 251, 245, 1)), 
+                              url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 12vw, 9rem);
+            line-height: 0.85;
+        }
+
+        /* Historia */
+        .history-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .history-content.active {
+            max-height: 2500px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 4rem;
+            border-left: 1px solid rgba(176, 141, 87, 0.2);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Calculadora */
+        .calc-input {
+            border: none;
+            border-bottom: 2px solid var(--accent);
+            width: 80px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            outline: none;
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Animaciones */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bar-container {
+            height: 220px;
+            display: flex;
+            align-items: flex-end;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .bar {
+            flex: 1;
+            background: var(--accent);
+            border-radius: 4px 4px 0 0;
+            transition: height 1s ease-in-out;
+            position: relative;
+        }
+        .bar::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: var(--text);
+        }
+
+        .card-style {
+            background: white;
+            border: 1px solid rgba(176, 141, 87, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-style:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(176, 141, 87, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BOTÓN MENÚ -->
+    <nav class="fixed top-10 right-10 z-[300]">
+        <button id="menu-btn" class="flex items-center gap-3 bg-white/95 backdrop-blur-md px-5 py-3 rounded-full border border-orange-100 shadow-xl group hover:scale-105 transition-transform">
+            <span class="text-[10px] tracking-widest uppercase font-bold text-amber-900">Menú</span>
+            <div class="flex flex-col gap-1.5 w-6">
+                <span class="h-[1.5px] w-full bg-amber-900"></span>
+                <span class="h-[1.5px] w-full bg-amber-900"></span>
+            </div>
+        </button>
+    </nav>
+
+    <!-- MENÚ LATERAL -->
+    <aside id="side-menu" class="shadow-2xl flex flex-col justify-center px-12 md:px-16 border-l border-orange-50">
+        <button id="close-btn" class="absolute top-10 right-10 text-amber-900 text-sm font-bold uppercase tracking-widest hover:text-amber-600 transition-colors">Cerrar</button>
+        <nav class="space-y-4">
+            <a href="#inicio" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Inicio</a>
+            <a href="#historia" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Crónica</a>
+            <a href="#estilos" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Geografía del Paladar</a>
+            <a href="#elaboracion" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Receta Maestra</a>
+            <a href="#ciencia" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Física y Química</a>
+            <a href="#variantes" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Interpretaciones</a>
+            <a href="#recursos" class="nav-link block text-2xl md:text-3xl font-serif hover:text-amber-700 transition-all hover:translate-x-2">Biblioteca Digital</a>
+        </nav>
+        <div class="mt-20 pt-10 border-t border-orange-100">
+            <p class="text-[10px] uppercase tracking-widest text-amber-800/40">Sofía Sardiñas Muñoz · 2026</p>
+        </div>
+    </aside>
+
+    <!-- HERO -->
+    <header id="inicio" class="h-screen hero-bg flex flex-col justify-center px-8 md:px-24">
+        <div class="max-w-5xl">
+            <span class="text-amber-800 font-semibold tracking-[0.4em] text-xs mb-4 block reveal">ARTE & SABOR</span>
+            <h1 class="hero-title font-serif italic mb-8">La Tarta <br> de Queso</h1>
+            <p class="max-w-lg text-lg text-amber-900/80 font-light reveal">
+                Desde los templos de Samos hasta las vanguardias de San Sebastián. Un estudio profundo sobre la evolución, ciencia y perfección de la joya láctea universal.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- CRÓNICA -->
+        <section id="historia" class="py-24 px-8 md:px-24 bg-white border-b border-orange-50 scroll-mt-20">
+            <div class="max-w-4xl mx-auto">
+                <button id="toggle-history" class="w-full flex justify-between items-center group focus:outline-none">
+                    <h2 class="font-serif text-6xl italic text-amber-900">Crónica</h2>
+                    <div class="flex items-center gap-4 text-amber-800/50 group-hover:text-amber-800 transition-colors">
+                        <span class="text-[10px] uppercase tracking-widest font-bold" id="toggle-text">Explorar Orígenes</span>
+                        <svg id="history-arrow" class="w-8 h-8 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </button>
+                <div id="history-box" class="history-content mt-16">
+                    <div class="space-y-0">
+                        <div class="timeline-item reveal">
+                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">Isla de Samos · 776 A.C.</span>
+                            <h3 class="text-3xl font-serif mt-2 mb-4">El Alimento de los Atletas</h3>
+                            <p class="text-gray-500 leading-relaxed font-light">En la antigua Grecia, la tarta de queso era considerada una fuente inmensa de energía. Se servía a los atletas durante los primeros Juegos Olímpicos de la historia. El escritor Ateneo registró la primera receta: queso triturado con miel y harina de trigo, calentado en un cuenco de cobre.</p>
+                        </div>
+                        <div class="timeline-item reveal">
+                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">Imperio Romano · 160 A.C.</span>
+                            <h3 class="text-3xl font-serif mt-2 mb-4">La Expansión de Marco Catón</h3>
+                            <p class="text-gray-500 leading-relaxed font-light">Tras la conquista de Grecia, los romanos adoptaron la receta llamándola 'Libum'. Marco Porcio Catón incluyó la preparación en su tratado "De Agri Cultura". Gracias a la expansión del Imperio, el concepto del pastel de queso llegó a todos los rincones de Europa.</p>
+                        </div>
+                        <div class="timeline-item reveal">
+                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">Estados Unidos · 1872</span>
+                            <h3 class="text-3xl font-serif mt-2 mb-4">El Nacimiento del Queso Crema</h3>
+                            <p class="text-gray-500 leading-relaxed font-light">William Lawrence, un lechero de Nueva York, intentaba recrear un queso francés tipo Neufchâtel cuando accidentalmente creó un queso mucho más rico y cremoso. Este "accidente" fue comercializado posteriormente bajo la marca Philadelphia, permitiendo la creación del icónico New York Cheesecake.</p>
+                        </div>
+                        <div class="timeline-item reveal">
+                            <span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase">San Sebastián · 1990</span>
+                            <h3 class="text-3xl font-serif mt-2 mb-4">La Revolución de La Viña</h3>
+                            <p class="text-gray-500 leading-relaxed font-light">Santiago Rivera en el restaurante La Viña crea una tarta sin base, horneada a alta temperatura para lograr un exterior tostado y un interior cremoso. Se convierte en un fenómeno mundial, inspirando a chefs desde Turquía hasta Japón, dando origen al "Basque Burnt Cheesecake".</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GEOGRAFÍA DEL PALADAR -->
+        <section id="estilos" class="py-32 px-8 md:px-24 bg-amber-50/30 scroll-mt-20">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="font-serif text-6xl italic text-amber-900 mb-20 text-center">Geografía del Paladar</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="card-style p-10 rounded-[40px] reveal">
+                        <h3 class="font-serif text-3xl mb-6 text-amber-800">Estilo Vasco (San Sebastián)</h3>
+                        <p class="text-gray-500 font-light mb-6 leading-relaxed">Caracterizada por su superficie "quemada" o caramelizada. No tiene base de galleta y se hornea a temperaturas muy altas. Su interior es casi líquido, proporcionando una experiencia de contraste única entre el amargor del tostado y el dulzor lácteo.</p>
+                        <ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase">
+                            <li>· Sin Base</li>
+                            <li>· Interior Fluido</li>
+                            <li>· Alta Temperatura</li>
+                        </ul>
+                    </div>
+                    <div class="card-style p-10 rounded-[40px] reveal">
+                        <h3 class="font-serif text-3xl mb-6 text-amber-800">New York Style</h3>
+                        <p class="text-gray-500 font-light mb-6 leading-relaxed">La tarta americana por excelencia. Utiliza una base de galletas Graham y mantequilla. Es densa, suave y suele llevar un toque de vainilla o limón. Se hornea al baño María para evitar grietas y conseguir una textura uniforme y compacta.</p>
+                        <ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase">
+                            <li>· Base de Galleta</li>
+                            <li>· Textura Densa</li>
+                            <li>· Baño María</li>
+                        </ul>
+                    </div>
+                    <div class="card-style p-10 rounded-[40px] reveal">
+                        <h3 class="font-serif text-3xl mb-6 text-amber-800">Soufflé Japonés</h3>
+                        <p class="text-gray-500 font-light mb-6 leading-relaxed">Conocida como "Cotton Cheesecake". Se elabora incorporando claras de huevo a punto de nieve a la mezcla de queso, lo que le otorga una textura de nube increíblemente aireada que "tiembla" al moverla. Menos dulce que las versiones occidentales.</p>
+                        <ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase">
+                            <li>· Claras Montadas</li>
+                            <li>· Ligereza Extrema</li>
+                            <li>· Bajo Azúcar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECETA MAESTRA -->
+        <section id="elaboracion" class="py-32 px-8 md:px-24 bg-[#fffbf5] scroll-mt-20">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
+                <div class="w-full lg:w-1/3 reveal bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-orange-100 lg:sticky lg:top-32">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+                        <h3 class="font-serif text-4xl italic text-amber-900">Ingredientes</h3>
+                        <div class="flex items-center gap-4">
+                            <input type="number" id="p-input" value="8" min="1" class="calc-input">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-amber-800">Personas</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6" id="ingredients">
+                        <div class="flex justify-between border-b border-orange-50 pb-5">
+                            <span class="text-gray-600">Queso Crema (Philadelphia)</span>
+                            <span class="font-bold text-amber-700"><span class="val" data-base="112.5">900</span>g</span>
+                        </div>
+                        <div class="flex justify-between border-b border-orange-50 pb-5">
+                            <span class="text-gray-600">Huevos Grandes (L)</span>
+                            <span class="font-bold text-amber-700"><span class="val" data-base="0.625">5</span>u</span>
+                        </div>
+                        <div class="flex justify-between border-b border-orange-50 pb-5">
+                            <span class="text-gray-600">Azúcar Blanco</span>
+                            <span class="font-bold text-amber-700"><span class="val" data-base="37.5">300</span>g</span>
+                        </div>
+                        <div class="flex justify-between border-b border-orange-50 pb-5">
+                            <span class="text-gray-600">Nata Líquida (35% MG)</span>
+                            <span class="font-bold text-amber-700"><span class="val" data-base="62.5">500</span>ml</span>
+                        </div>
+                        <div class="flex justify-between border-b border-orange-50 pb-5">
+                            <span class="text-gray-600">Harina de Trigo</span>
+                            <span class="font-bold text-amber-700"><span class="val" data-base="6.25">50</span>g</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3 space-y-16">
+                    <h3 class="font-serif text-6xl italic text-amber-900 reveal">Receta Maestra</h3>
+                    <div class="space-y-16">
+                        <div class="reveal">
+                            <h4 class="text-lg font-bold text-amber-900 uppercase tracking-widest mb-4"><span class="text-6xl mr-2">01.</span> Preparación del Molde</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">Precalienta el horno a 210ºC con calor arriba y abajo. Humedece un trozo grande de papel de horno, arrúgalo con las manos (esto ayuda a que se adapte mejor) y forra un molde de 24cm dejando que el papel sobresalga por los bordes.</p>
+                        </div>
+                        <div class="reveal">
+                            <h4 class="text-lg font-bold text-amber-900 uppercase tracking-widest mb-4"><span class="text-6xl mr-2">02.</span> La Mezcla Láctea</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">En un bol grande, bate el queso crema con el azúcar hasta que no haya grumos. Añade los huevos uno a uno, integrándolos suavemente sin introducir demasiado aire. Vierte la nata y tamiza la harina sobre la mezcla, batiendo por última vez.</p>
+                        </div>
+                        <div class="reveal">
+                            <h4 class="text-lg font-bold text-amber-900 uppercase tracking-widest mb-4"><span class="text-6xl mr-2">03.</span> Horneado Crítico</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">Vierte la mezcla en el molde y hornea durante 40-45 minutos. La tarta debe subir y estar muy tostada por fuera, pero al mover el molde debe "bailar" como si fuera un flan en el centro. Esto asegura el corazón fluido.</p>
+                        </div>
+                        <div class="reveal">
+                            <h4 class="text-lg font-bold text-amber-900 uppercase tracking-widest mb-4"><span class="text-6xl mr-2">04.</span> El Reposo Paciente</h4>
+                            <p class="text-gray-500 font-light leading-relaxed">Saca del horno y deja enfriar a temperatura ambiente durante al menos 4 horas. No la desmoldes ni la metas en la nevera caliente, ya que la estructura terminará de asentarse mientras se enfría lentamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FÍSICA Y QUÍMICA -->
+        <section id="ciencia" class="py-32 px-8 md:px-24 bg-white scroll-mt-20">
+            <div class="max-w-5xl mx-auto text-center mb-20">
+                <h2 class="font-serif text-6xl italic text-amber-900 mb-6">Física y Química</h2>
+                <p class="text-gray-500 font-light">Por qué la tarta de queso se comporta como lo hace.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-amber-700 mb-4">La Coagulación de Proteínas</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">A medida que el calor penetra, las proteínas del huevo y el queso se desenrollan y forman una red tridimensional. Si el calor es excesivo o prolongado, la red se aprieta demasiado expulsando el agua y dejando una textura granulosa indeseada.</p>
+                </div>
+                <div class="reveal">
+                    <h4 class="font-bold text-sm uppercase tracking-widest text-amber-700 mb-4">La Reacción de Maillard</h4>
+                    <p class="text-gray-500 font-light leading-relaxed">El color tostado exterior no es quemado, es una reacción química entre los aminoácidos y los azúcares reductores. Esto genera cientos de compuestos aromáticos nuevos que aportan notas de caramelo, frutos secos y tostados complejos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERPRETACIONES -->
+        <section id="variantes" class="py-32 px-8 md:px-24 bg-[#fffbf5] scroll-mt-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="font-serif text-6xl italic text-center mb-10 text-amber-900">Interpretaciones</h2>
+                <p class="text-center text-gray-500 font-light mb-24 max-w-2xl mx-auto">Selecciona una variante para ver el ranking de las mejores pastelerías de España especializadas en cada estilo.</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <button onclick="showRanking('hippo')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group">
+                        <span class="text-3xl mb-4 block group-hover:scale-110 transition-transform">🦛</span>
+                        <p class="text-[10px] font-bold uppercase tracking-widest">Chocolate Hippo</p>
+                    </button>
+                    <button onclick="showRanking('lotus')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group">
+                        <span class="text-3xl mb-4 block group-hover:scale-110 transition-transform">🍪</span>
+                        <p class="text-[10px] font-bold uppercase tracking-widest">Especial Lotus</p>
+                    </button>
+                    <button onclick="showRanking('pistacho')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group">
+                        <span class="text-3xl mb-4 block group-hover:scale-110 transition-transform">🥜</span>
+                        <p class="text-[10px] font-bold uppercase tracking-widest">Pistacho Real</p>
+                    </button>
+                    <button onclick="showRanking('leche')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group">
+                        <span class="text-3xl mb-4 block group-hover:scale-110 transition-transform">🍯</span>
+                        <p class="text-[10px] font-bold uppercase tracking-widest">D. de Leche</p>
+                    </button>
+                </div>
+
+                <div id="ranking-panel" class="hidden mt-20 p-12 bg-white rounded-[50px] border border-amber-100/50 shadow-xl max-w-5xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h4 id="ranking-title" class="font-serif text-4xl italic text-amber-900 mb-8 uppercase tracking-tighter">Variante</h4>
+                            <ol id="ranking-list" class="space-y-6 text-gray-700 font-light"></ol>
+                        </div>
+                        <div id="ranking-chart" class="bar-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIBLIOTECA DIGITAL -->
+        <section id="recursos" class="py-32 px-8 md:px-24 bg-white scroll-mt-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="font-serif text-5xl italic text-amber-900 mb-16 text-center">Biblioteca Digital</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-amber-50/50 p-10 rounded-3xl reveal border border-amber-100/30">
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-amber-600 mb-8">Maestros en Video</h4>
+                        <ul class="space-y-8">
+                            <li>
+                                <a href="https://www.youtube.com/results?search_query=receta+tarta+de+queso+la+viña" target="_blank" class="group block">
+                                    <span class="font-bold block group-hover:text-amber-600 transition-colors">La Viña: El Documental Técnico</span>
+                                    <span class="text-sm text-gray-500 font-light">Análisis paso a paso del restaurante que cambió la historia del postre en España.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/results?search_query=how+to+make+new+york+cheesecake+professional" target="_blank" class="group block">
+                                    <span class="font-bold block group-hover:text-amber-600 transition-colors">Perfección New York Style</span>
+                                    <span class="text-sm text-gray-500 font-light">Secretos sobre el baño María y la base de galleta perfecta.</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-amber-50/50 p-10 rounded-3xl reveal border border-amber-100/30">
+                        <h4 class="font-bold text-xs uppercase tracking-widest text-amber-600 mb-8">Inspiración Digital</h4>
+                        <ul class="space-y-8">
+                            <li>
+                                <a href="https://www.instagram.com/joncake.es/" target="_blank" class="group block">
+                                    <span class="font-bold block group-hover:text-amber-600 transition-colors">@joncake_es</span>
+                                    <span class="text-sm text-gray-500 font-light">Jon Cake: El ingeniero reconvertido en maestro quesero de Barcelona.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/alexcordobess" target="_blank" class="group block">
+                                    <span class="font-bold block group-hover:text-amber-600 transition-colors">@alexcordobess</span>
+                                    <span class="text-sm text-gray-500 font-light">Alex Cordobés: La tarta que conquistó Madrid con su estética impecable.</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/balbisiana/" target="_blank" class="group block">
+                                    <span class="font-bold block group-hover:text-amber-600 transition-colors">@balbisiana</span>
+                                    <span class="text-sm text-gray-500 font-light">Variantes artesanales y el uso del pistacho en la alta pastelería.</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-50 py-24 px-8 md:px-24">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="reveal">
+                <p class="font-serif text-4xl italic text-amber-950">Sofía Sardiñas Muñoz</p>
+                <p class="text-amber-800/40 text-[10px] uppercase tracking-widest mt-4">© 2026 Todos los derechos reservados · Proyecto de Investigación Gastronómica</p>
+                
+                <!-- ENLACES LEGALES -->
+                <nav class="flex gap-4 mt-6">
+                    <a href="#" class="text-[10px] uppercase tracking-widest text-amber-800/60 hover:text-amber-600 transition-colors">Aviso Legal</a>
+                    <a href="#" class="text-[10px] uppercase tracking-widest text-amber-800/60 hover:text-amber-600 transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-[10px] uppercase tracking-widest text-amber-800/60 hover:text-amber-600 transition-colors">Política de Cookies</a>
+                </nav>
+            </div>
+            
+            <div class="reveal md:text-right">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-amber-800/60 mb-2">Contacto & Redes</p>
+                <div class="flex flex-col md:items-end gap-2">
+                    <a href="mailto:infotartadequeso@gmail.com" class="text-2xl font-serif italic text-amber-900 border-b border-amber-900/20 hover:text-amber-600 transition-colors">infotartadequeso@gmail.com</a>
+                    
+                    <!-- ENLACES SOCIALES -->
+                    <div class="flex gap-6 mt-4">
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900/60 hover:text-amber-600 transition-colors">Instagram</a>
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900/60 hover:text-amber-600 transition-colors">YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        menuBtn.onclick = () => {
+            sideMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            sideMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.onclick = closeMenu;
+
+        navLinks.forEach(link => {
+            link.onclick = (e) => {
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                closeMenu();
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            };
+        });
+
+        const toggleH = document.getElementById('toggle-history');
+        const hBox = document.getElementById('history-box');
+        const hArrow = document.getElementById('history-arrow');
+        toggleH.onclick = () => {
+            const act = hBox.classList.toggle('active');
+            hArrow.style.transform = act ? 'rotate(180deg)' : 'rotate(0deg)';
+        };
+
+        const pInput = document.getElementById('p-input');
+        const vals = document.querySelectorAll('.val');
+        pInput.oninput = (e) => {
+            let n = parseFloat(e.target.value) || 1;
+            if (n < 1) n = 1;
+            vals.forEach(el => {
+                const b = parseFloat(el.getAttribute('data-base'));
+                el.innerText = Math.ceil(b * n);
+            });
+        };
+
+        const rData = {
+            hippo: { 
+                title: "Chocolate Hippo Especial", 
+                list: ["Alex Cordobés (Las Rozas/Madrid) - Puntuación: 9.8", "Jon Cake (Barcelona) - Puntuación: 9.5", "Cremat (Madrid) - Puntuación: 9.0", "La Mejor Tarta de Madrid - Puntuación: 8.7"], 
+                stats: [98, 95, 90, 87], 
+                labels: ["Alex", "Jon", "Cre", "TDM"] 
+            },
+            lotus: { 
+                title: "Lotus & Galleta Belga", 
+                list: ["Gioia (Madrid) - Puntuación: 9.6", "Cheese & Cake (Barcelona) - Puntuación: 9.2", "Nunos (Madrid) - Puntuación: 8.5"], 
+                stats: [96, 92, 85], 
+                labels: ["Gio", "C&C", "Nun"] 
+            },
+            pistacho: { 
+                title: "Pistacho Real", 
+                list: ["Balbisiana (Madrid) - Puntuación: 9.9", "Pastelería Nunos - Puntuación: 9.1", "Jon Cake (Barcelona) - Puntuación: 8.9"], 
+                stats: [99, 91, 89], 
+                labels: ["Bal", "Nun", "Jon"] 
+            },
+            leche: { 
+                title: "Dulce de Leche / Caramelo", 
+                list: ["Cheesecake Factory - Puntuación: 8.5", "Panela & Co (Madrid) - Puntuación: 8.2"], 
+                stats: [85, 82], 
+                labels: ["Fac", "Pan"] 
+            }
+        };
+
+        function showRanking(t) {
+            const p = document.getElementById('ranking-panel');
+            const data = rData[t];
+            p.classList.remove('hidden');
+            document.getElementById('ranking-title').innerText = data.title;
+            document.getElementById('ranking-list').innerHTML = data.list.map((it, i) => `<li class="flex gap-4"><span class="italic text-amber-400 font-serif">0${i+1}</span>${it}</li>`).join('');
+            const c = document.getElementById('ranking-chart');
+            c.innerHTML = '';
+            data.stats.forEach((s, i) => {
+                const b = document.createElement('div');
+                b.className = 'bar'; 
+                b.setAttribute('data-label', data.labels[i]);
+                c.appendChild(b);
+                setTimeout(() => b.style.height = s + '%', 100);
+            });
+            p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        const obs = new IntersectionObserver((es) => {
+            es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>

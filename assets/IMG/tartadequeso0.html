@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;La Tarta de Queso | Enciclopedia y Arte Gastronómico&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--accent: #b08d57;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>--bg: #fffbf5; <span class="Apple-converted-space">   </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>--text: #2d2a26;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1, h2, h3, h4, .font-serif {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* MENÚ LATERAL FUNCIONAL */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#side-menu {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 200;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (min-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>#side-menu { width: 450px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#side-menu.open {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Hero */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero-bg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-image: linear-gradient(to bottom, rgba(255, 251, 245, 0.1), rgba(255, 251, 245, 1)),<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                              </span>url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&amp;fit=crop&amp;q=80&amp;w=2070');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-attachment: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hero-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: clamp(3.5rem, 12vw, 9rem);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 0.85;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Historia */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.history-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.history-content.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-height: 2500px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-left: 3rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 4rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 1px solid rgba(176, 141, 87, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: -5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Calculadora */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.calc-input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Animaciones */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reveal {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(30px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.8s ease-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reveal.visible {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bar-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 220px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: flex-end;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px 4px 0 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: height 1s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bar::after {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: attr(data-label);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: -25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-style {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(176, 141, 87, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s ease, box-shadow 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-style:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-10px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 30px 60px rgba(176, 141, 87, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- BOTÓN MENÚ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="fixed top-10 right-10 z-[300]"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="menu-btn" class="flex items-center gap-3 bg-white/95 backdrop-blur-md px-5 py-3 rounded-full border border-orange-100 shadow-xl group hover:scale-105 transition-transform"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-[10px] tracking-widest uppercase font-bold text-amber-900"&gt;Menú&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col gap-1.5 w-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="h-[1.5px] w-full bg-amber-900"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="h-[1.5px] w-full bg-amber-900"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- MENÚ LATERAL --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;aside id="side-menu" class="shadow-2xl flex flex-col justify-center px-12 md:px-16 border-l border-orange-50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="close-btn" class="absolute top-10 right-10 text-amber-900 text-sm font-bold uppercase tracking-widest hover:text-amber-600 transition-colors"&gt;Cerrar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#inicio" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Inicio&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#historia" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Crónica&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#estilos" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Geografía del Paladar&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#elaboracion" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Receta Maestra&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#ciencia" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Física y Química&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#variantes" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Interpretaciones&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#recursos" class="nav-link block text-4xl md:text-5xl font-serif hover:text-amber-700 transition-all hover:translate-x-2"&gt;Biblioteca Digital&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mt-20 pt-10 border-t border-orange-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-[10px] uppercase tracking-widest text-amber-800/40"&gt;Sofía Sardiñas Muñoz · 2026&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/aside&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HERO --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header id="inicio" class="h-screen hero-bg flex flex-col justify-center px-8 md:px-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="text-amber-800 font-semibold tracking-[0.4em] text-xs mb-4 block reveal"&gt;ARTE &amp; SABOR&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="hero-title font-serif italic mb-8"&gt;La Tarta &lt;br&gt; de Queso&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="max-w-lg text-lg text-amber-900/80 font-light reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Desde los templos de Samos hasta las vanguardias de San Sebastián. Un estudio profundo sobre la evolución, ciencia y perfección de la joya láctea universal.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CRÓNICA (HISTORIA COMPLETA) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="historia" class="py-24 px-8 md:px-24 bg-white border-b border-orange-50 scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-4xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="toggle-history" class="w-full flex justify-between items-center group focus:outline-none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="font-serif text-6xl italic text-amber-900"&gt;Crónica&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center gap-4 text-amber-800/50 group-hover:text-amber-800 transition-colors"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-[10px] uppercase tracking-widest font-bold" id="toggle-text"&gt;Explorar Orígenes&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;svg id="history-arrow" class="w-8 h-8 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="history-box" class="history-content mt-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="timeline-item reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase"&gt;Isla de Samos · 776 A.C.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-3xl font-serif mt-2 mb-4"&gt;El Alimento de los Atletas&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 leading-relaxed font-light"&gt;En la antigua Grecia, la tarta de queso era considerada una fuente inmensa de energía. Se servía a los atletas durante los primeros Juegos Olímpicos de la historia. El escritor Ateneo registró la primera receta: queso triturado con miel y harina de trigo, calentado en un cuenco de cobre.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="timeline-item reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase"&gt;Imperio Romano · 160 A.C.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-3xl font-serif mt-2 mb-4"&gt;La Expansión de Marco Catón&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 leading-relaxed font-light"&gt;Tras la conquista de Grecia, los romanos adoptaron la receta llamándola 'Libum'. Marco Porcio Catón incluyó la preparación en su tratado "De Agri Cultura". Gracias a la expansión del Imperio, el concepto del pastel de queso llegó a todos los rincones de Europa.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="timeline-item reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase"&gt;Estados Unidos · 1872&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-3xl font-serif mt-2 mb-4"&gt;El Nacimiento del Queso Crema&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 leading-relaxed font-light"&gt;William Lawrence, un lechero de Nueva York, intentaba recrear un queso francés tipo Neufchâtel cuando accidentalmente creó un queso mucho más rico y cremoso. Este "accidente" fue comercializado posteriormente bajo la marca Philadelphia, permitiendo la creación del icónico New York Cheesecake.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="timeline-item reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-amber-600 font-bold text-[10px] tracking-widest uppercase"&gt;San Sebastián · 1990&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-3xl font-serif mt-2 mb-4"&gt;La Revolución de La Viña&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 leading-relaxed font-light"&gt;Santiago Rivera en el restaurante La Viña crea una tarta sin base, horneada a alta temperatura para lograr un exterior tostado y un interior cremoso. Se convierte en un fenómeno mundial, inspirando a chefs desde Turquía hasta Japón, dando origen al "Basque Burnt Cheesecake".&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- GEOGRAFÍA DEL PALADAR (ESTILOS COMPLETOS) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="estilos" class="py-32 px-8 md:px-24 bg-amber-50/30 scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="font-serif text-6xl italic text-amber-900 mb-20 text-center"&gt;Geografía del Paladar&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-3 gap-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="card-style p-10 rounded-[40px] reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-serif text-3xl mb-6 text-amber-800"&gt;Estilo Vasco (San Sebastián)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-500 font-light mb-6 leading-relaxed"&gt;Caracterizada por su superficie "quemada" o caramelizada. No tiene base de galleta y se hornea a temperaturas muy altas. Su interior es casi líquido, proporcionando una experiencia de contraste única entre el amargor del tostado y el dulzor lácteo.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Sin Base&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Interior Fluido&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Alta Temperatura&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="card-style p-10 rounded-[40px] reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-serif text-3xl mb-6 text-amber-800"&gt;New York Style&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-500 font-light mb-6 leading-relaxed"&gt;La tarta americana por excelencia. Utiliza una base de galletas Graham y mantequilla. Es densa, suave y suele llevar un toque de vainilla o limón. Se hornea al baño María para evitar grietas y conseguir una textura uniforme y compacta.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Base de Galleta&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Textura Densa&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Baño María&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="card-style p-10 rounded-[40px] reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-serif text-3xl mb-6 text-amber-800"&gt;Soufflé Japonés&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-gray-500 font-light mb-6 leading-relaxed"&gt;Conocida como "Cotton Cheesecake". Se elabora incorporando claras de huevo a punto de nieve a la mezcla de queso, lo que le otorga una textura de nube increíblemente aireada que "tiembla" al moverla. Menos dulce que las versiones occidentales.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="text-xs font-bold text-amber-900/40 tracking-widest space-y-2 uppercase"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Claras Montadas&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Ligereza Extrema&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;· Bajo Azúcar&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- RECETA MAESTRA (INGREDIENTES Y PASOS COMPLETOS) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="elaboracion" class="py-32 px-8 md:px-24 bg-[#fffbf5] scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-full lg:w-1/3 reveal bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-orange-100 lg:sticky lg:top-32"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-serif text-4xl italic text-amber-900"&gt;Ingredientes&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex items-center gap-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="number" id="p-input" value="8" min="1" class="calc-input"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-[10px] font-bold uppercase tracking-widest text-amber-800"&gt;Personas&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-6" id="ingredients"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between border-b border-orange-50 pb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-gray-600"&gt;Queso Crema (Philadelphia)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-amber-700"&gt;&lt;span class="val" data-base="112.5"&gt;900&lt;/span&gt;g&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between border-b border-orange-50 pb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-gray-600"&gt;Huevos Grandes (L)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-amber-700"&gt;&lt;span class="val" data-base="0.625"&gt;5&lt;/span&gt;u&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between border-b border-orange-50 pb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-gray-600"&gt;Azúcar Blanco&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-amber-700"&gt;&lt;span class="val" data-base="37.5"&gt;300&lt;/span&gt;g&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between border-b border-orange-50 pb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-gray-600"&gt;Nata Líquida (35% MG)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-amber-700"&gt;&lt;span class="val" data-base="62.5"&gt;500&lt;/span&gt;ml&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between border-b border-orange-50 pb-5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text-gray-600"&gt;Harina de Trigo&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="font-bold text-amber-700"&gt;&lt;span class="val" data-base="6.25"&gt;50&lt;/span&gt;g&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="w-full lg:w-2/3 space-y-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="font-serif text-6xl italic text-amber-900 reveal"&gt;Receta Maestra&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-bold text-amber-900 uppercase tracking-tighter mb-4"&gt;01. Preparación del Molde&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;Precalienta el horno a 210ºC con calor arriba y abajo. Humedece un trozo grande de papel de horno, arrúgalo con las manos (esto ayuda a que se adapte mejor) y forra un molde de 24cm dejando que el papel sobresalga por los bordes.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-bold text-amber-900 uppercase tracking-tighter mb-4"&gt;02. La Mezcla Láctea&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;En un bol grande, bate el queso crema con el azúcar hasta que no haya grumos. Añade los huevos uno a uno, integrándolos suavemente sin introducir demasiado aire. Vierte la nata y tamiza la harina sobre la mezcla, batiendo por última vez.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-bold text-amber-900 uppercase tracking-tighter mb-4"&gt;03. Horneado Crítico&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;Vierte la mezcla en el molde y hornea durante 40-45 minutos. La tarta debe subir y estar muy tostada por fuera, pero al mover el molde debe "bailar" como si fuera un flan en el centro. Esto asegura el corazón fluido.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="text-xl font-bold text-amber-900 uppercase tracking-tighter mb-4"&gt;04. El Reposo Paciente&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;Saca del horno y deja enfriar a temperatura ambiente durante al menos 4 horas. No la desmoldes ni la metas en la nevera caliente, ya que la estructura terminará de asentarse mientras se enfría lentamente.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FÍSICA Y QUÍMICA (CIENCIA COMPLETA) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="ciencia" class="py-32 px-8 md:px-24 bg-white scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl mx-auto text-center mb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="font-serif text-6xl italic text-amber-900 mb-6"&gt;Física y Química&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-500 font-light"&gt;Por qué la tarta de queso se comporta como lo hace.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid md:grid-cols-2 gap-16"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-bold text-sm uppercase tracking-widest text-amber-700 mb-4"&gt;La Coagulación de Proteínas&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;A medida que el calor penetra, las proteínas del huevo y el queso se desenrollan y forman una red tridimensional. Si el calor es excesivo o prolongado, la red se aprieta demasiado expulsando el agua y dejando una textura granulosa indeseada.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4 class="font-bold text-sm uppercase tracking-widest text-amber-700 mb-4"&gt;La Reacción de Maillard&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-gray-500 font-light leading-relaxed"&gt;El color tostado exterior no es quemado, es una reacción química entre los aminoácidos y los azúcares reductores. Esto genera cientos de compuestos aromáticos nuevos que aportan notas de caramelo, frutos secos y tostados complejos.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- INTERPRETACIONES (MAPA Y TIENDAS COMPLETO) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="variantes" class="py-32 px-8 md:px-24 bg-[#fffbf5] scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="font-serif text-6xl italic text-center mb-10 text-amber-900"&gt;Interpretaciones&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-center text-gray-500 font-light mb-24 max-w-2xl mx-auto"&gt;Selecciona una variante para ver el ranking de las mejores pastelerías de España especializadas en cada estilo.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-2 md:grid-cols-4 gap-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showRanking('hippo')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-3xl mb-4 block group-hover:scale-110 transition-transform"&gt;🦛&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[10px] font-bold uppercase tracking-widest"&gt;Chocolate Hippo&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showRanking('lotus')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-3xl mb-4 block group-hover:scale-110 transition-transform"&gt;🍪&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[10px] font-bold uppercase tracking-widest"&gt;Especial Lotus&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showRanking('pistacho')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-3xl mb-4 block group-hover:scale-110 transition-transform"&gt;🥜&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[10px] font-bold uppercase tracking-widest"&gt;Pistacho Real&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="showRanking('leche')" class="p-8 border border-amber-100 rounded-3xl text-center reveal hover:bg-white transition-all group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="text-3xl mb-4 block group-hover:scale-110 transition-transform"&gt;🍯&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-[10px] font-bold uppercase tracking-widest"&gt;D. de Leche&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="ranking-panel" class="hidden mt-20 p-12 bg-white rounded-[50px] border border-amber-100/50 shadow-xl max-w-5xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid md:grid-cols-2 gap-16 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 id="ranking-title" class="font-serif text-4xl italic text-amber-900 mb-8 uppercase tracking-tighter"&gt;Variante&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;ol id="ranking-list" class="space-y-6 text-gray-700 font-light"&gt;&lt;/ol&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="ranking-chart" class="bar-container"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- BIBLIOTECA DIGITAL (LINKS COMPLETOS) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="recursos" class="py-32 px-8 md:px-24 bg-white scroll-mt-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="font-serif text-5xl italic text-amber-900 mb-16 text-center"&gt;Biblioteca Digital&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid md:grid-cols-2 gap-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-amber-50/50 p-10 rounded-3xl reveal border border-amber-100/30"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="font-bold text-xs uppercase tracking-widest text-amber-600 mb-8"&gt;Maestros en Video&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="https://www.youtube.com/results?search_query=receta+tarta+de+queso+la+viña" target="_blank" class="group block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="font-bold block group-hover:text-amber-600 transition-colors"&gt;La Viña: El Documental Técnico&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-500 font-light"&gt;Análisis paso a paso del restaurante que cambió la historia del postre en España.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="https://www.youtube.com/results?search_query=how+to+make+new+york+cheesecake+professional" target="_blank" class="group block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="font-bold block group-hover:text-amber-600 transition-colors"&gt;Perfección New York Style&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-500 font-light"&gt;Secretos sobre el baño María y la base de galleta perfecta.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-amber-50/50 p-10 rounded-3xl reveal border border-amber-100/30"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4 class="font-bold text-xs uppercase tracking-widest text-amber-600 mb-8"&gt;Inspiración Digital&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="https://www.instagram.com/joncake_es/" target="_blank" class="group block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="font-bold block group-hover:text-amber-600 transition-colors"&gt;@joncake_es&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-500 font-light"&gt;Jon Cake: El ingeniero reconvertido en maestro quesero de Barcelona.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="https://www.instagram.com/alexcordobess" target="_blank" class="group block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="font-bold block group-hover:text-amber-600 transition-colors"&gt;@alexcordobess&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-500 font-light"&gt;Alex Cordobés: La tarta que conquistó Madrid con su estética impecable.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;a href="https://www.instagram.com/balbisiana/" target="_blank" class="group block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="font-bold block group-hover:text-amber-600 transition-colors"&gt;@balbisiana&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="text-sm text-gray-500 font-light"&gt;Variantes artesanales y el uso del pistacho en la alta pastelería.&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- FOOTER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-gray-50 py-24 px-8 md:px-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="reveal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="font-serif text-4xl italic text-amber-950"&gt;Sofía Sardiñas Muñoz&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-amber-800/40 text-[10px] uppercase tracking-widest mt-4"&gt;© 2026 Todos los derechos reservados · Proyecto de Investigación Gastronómica&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="reveal md:text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-[10px] font-bold uppercase tracking-widest text-amber-800/60 mb-2"&gt;Contacto Directo&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="mailto:infotartadequeso@gmail.com" class="text-2xl font-serif italic text-amber-900 border-b border-amber-900/20 hover:text-amber-600 transition-colors"&gt;infotartadequeso@gmail.com&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// SISTEMA DE MENÚ CORREGIDO (Única parte modificada técnicamente)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const menuBtn = document.getElementById('menu-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sideMenu = document.getElementById('side-menu');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const closeBtn = document.getElementById('close-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const navLinks = document.querySelectorAll('.nav-link');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>menuBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sideMenu.classList.add('open');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.overflow = 'hidden';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const closeMenu = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>sideMenu.classList.remove('open');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.overflow = 'auto';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>closeBtn.onclick = closeMenu;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>link.onclick = (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const targetId = link.getAttribute('href');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const targetElement = document.querySelector(targetId);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>closeMenu();</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Si el enlace es interno (#), prevenimos el salto brusco</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (targetId.startsWith('#')) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>targetElement.scrollIntoView({ behavior: 'smooth' });</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}, 300);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Toggle Historia</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const toggleH = document.getElementById('toggle-history');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const hBox = document.getElementById('history-box');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const hArrow = document.getElementById('history-arrow');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toggleH.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const act = hBox.classList.toggle('active');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hArrow.style.transform = act ? 'rotate(180deg)' : 'rotate(0deg)';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Calculadora de Ingredientes</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pInput = document.getElementById('p-input');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const vals = document.querySelectorAll('.val');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pInput.oninput = (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let n = parseFloat(e.target.value) || 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (n &lt; 1) n = 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>vals.forEach(el =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const b = parseFloat(el.getAttribute('data-base'));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>el.innerText = Math.ceil(b * n);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Rankings y Interpretaciones (DATOS COMPLETOS)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const rData = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hippo: {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Chocolate Hippo Especial",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>list: ["Alex Cordobés (Las Rozas/Madrid) - Puntuación: 9.8", "Jon Cake (Barcelona) - Puntuación: 9.5", "Cremat (Madrid) - Puntuación: 9.0", "La Mejor Tarta de Madrid - Puntuación: 8.7"],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>stats: [98, 95, 90, 87],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ["Alex", "Jon", "Cre", "TDM"]<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>lotus: {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Lotus &amp; Galleta Belga",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>list: ["Gioia (Madrid) - Puntuación: 9.6", "Cheese &amp; Cake (Barcelona) - Puntuación: 9.2", "Nunos (Madrid) - Puntuación: 8.5"],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>stats: [96, 92, 85],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ["Gio", "C&amp;C", "Nun"]<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pistacho: {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Pistacho Real",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>list: ["Balbisiana (Madrid) - Puntuación: 9.9", "Pastelería Nunos - Puntuación: 9.1", "Jon Cake (Barcelona) - Puntuación: 8.9"],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>stats: [99, 91, 89],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ["Bal", "Nun", "Jon"]<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>leche: {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>title: "Dulce de Leche / Caramelo",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>list: ["Cheesecake Factory - Puntuación: 8.5", "Panela &amp; Co (Madrid) - Puntuación: 8.2"],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>stats: [85, 82],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>labels: ["Fac", "Pan"]<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showRanking(t) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const p = document.getElementById('ranking-panel');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = rData[t];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('ranking-title').innerText = data.title;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('ranking-list').innerHTML = data.list.map((it, i) =&gt; `&lt;li class="flex gap-4"&gt;&lt;span class="italic text-amber-400 font-serif"&gt;0${i+1}&lt;/span&gt;${it}&lt;/li&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const c = document.getElementById('ranking-chart');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>c.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>data.stats.forEach((s, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const b = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>b.className = 'bar';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>b.setAttribute('data-label', data.labels[i]);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>c.appendChild(b);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(() =&gt; b.style.height = s + '%', 100);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.scrollIntoView({ behavior: 'smooth', block: 'center' });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Scroll Reveal Observer</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const obs = new IntersectionObserver((es) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>es.forEach(e =&gt; { if(e.isIntersecting) e.target.classList.add('visible'); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}, { threshold: 0.1 });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.reveal').forEach(el =&gt; obs.observe(el));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
